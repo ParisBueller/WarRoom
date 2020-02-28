@@ -1,4 +1,6 @@
 const express = require('express');
+const keys = require('/config/keys.js');
+require('./models/User');
 
 const app = express();
 

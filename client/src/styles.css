@@ -1,3 +1,22 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+/* BACKDROP */
+.backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
 /* LOADING SPINNER */
 .lds-roller {
     display: inline-block;
@@ -84,5 +103,142 @@
     }
   }
 
-  /* NAVBAR */
+  /* TOOLBAR */
+  .toolbar {
+    width: 100%;
+    height: 65px;
+    position: fixed;
+    background: #333333;
+  }
+
+  .toolbar_navigation {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 1rem;
+  }
+
+  .toolbar_logo {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+  }
+
+  .toolbar_logo:hover {
+    color: whitesmoke;
+    text-decoration: none;
+  }
+
+  .toolbar_navigation_items ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+  }
+
+  .toolbar_navigation_items li {
+    padding: 0 0.5rem;
+  }
+
+  .toolbar_navigation_items a{
+    text-decoration: none;
+    color: white;
+  }
+  .toolbar_navigation_items a:hover,
+  .toolbar_navigation_items a:active {
+    color: whitesmoke;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  @media (max-width: 768px) {
+    .toolbar_navigation_items {
+      display: none;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .toolbar_toggle_button {
+      display: none;
+    }
+
+    .toolbar_logo {
+      margin-left: 0;
+    }
+  }
   
+  /* TOGGLE BUTTON */
+  .toggle_button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 30px;
+    width: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .toggle_button:focus {
+    outline: none;
+  }
+
+  .toggle_button_line {
+    width: 30px;
+    height: 2px;
+    background: white;
+  }
+
+  /* SIDEDRAWER */
+.side-drawer {
+  height: 100%;
+  background: white;
+  box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70%;
+  max-width: 400px;
+  z-index: 200;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-out;
+}
+
+.side-drawer.open {
+  transform: translateX(0);
+}
+
+.side-drawer ul {
+  height: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.side-drawer li {
+  margin: 0.5rem 0;
+}
+
+.side-drawer a {
+  color: #333333;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.side-drawer a:hover,
+.side-drawer a:active {
+  color: rgb(134, 130, 130);
+}
+
+@media(min-width: 769px) {
+  .side-drawer {
+    display: none;
+  }
+}
+

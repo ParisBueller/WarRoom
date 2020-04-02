@@ -3,21 +3,41 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import * as actions from '../actions';
-import Navbar from './Navbar';
+import Toolbar from './Toolbar/Toolbar';
+import SideDrawer from './SideDrawer/SideDrawer';
+import Backdrop from './Backdrop/Backdrop';
 import Dashboard from './Dashboard';
 
 class App extends React.Component {
+  state = { sideDrawerOpen: false };
     componentDidMount() {
       this.props.fetchUser();
     }
 
+    drawerToggleClickHandler = () => {
+      this.setState((prevState) => {
+        return {sideDrawerOpen: !prevState.sideDrawerOpen};
+      });
+    };
+
+    backdropClickHandler = () => {
+      this.setState({sideDrawerOpen: false});
+    };
+
   render() {
+    let backdrop;
+
+    if (this.state.sideDrawerOpen) {
+      backdrop = <Backdrop click={this.backdropClickHandler}/>;
+    }
     return (
-      <div className="container">
+      <div style={{height: '100%'}}>
         <BrowserRouter>
+          <Toolbar drawerClickHandler={this.drawerToggleClickHandler}/>
+          <SideDrawer show={this.state.sideDrawerOpen}/>
+          {backdrop}
           <div className="container">
-          <Navbar />
-          <Route exact path="/dashboard" component={Dashboard}></Route>
+            <Route exact path="/dashboard" component={Dashboard} />
           </div>
         </BrowserRouter>
       </div>

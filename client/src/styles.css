@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2&display=swap');
 html {
   height: 100%;
 }
@@ -18,6 +19,15 @@ body {
 }
 
 /* LOADING SPINNER */
+.lds-roller-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
 .lds-roller {
     display: inline-block;
     position: relative;
@@ -35,7 +45,7 @@ body {
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #fff;
+    background: rgb(24, 23, 23);
     margin: -4px 0 0 -4px;
   }
   .lds-roller div:nth-child(1) {
@@ -123,6 +133,7 @@ body {
     text-decoration: none;
     font-size: 1.5rem;
     margin-left: 0.5rem;
+    font-family: 'Baloo Paaji 2', cursive;
   }
 
   .toolbar_logo:hover {
@@ -241,4 +252,11 @@ body {
     display: none;
   }
 }
+/* LOGIN */
+.card {
+margin-top: 10rem;
+}
 
+#log-in-header {
+  font-family: 'Baloo Paaji 2', cursive;
+}

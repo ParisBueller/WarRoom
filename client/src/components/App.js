@@ -7,6 +7,7 @@ import Toolbar from './Toolbar/Toolbar';
 import SideDrawer from './SideDrawer/SideDrawer';
 import Backdrop from './Backdrop/Backdrop';
 import Dashboard from './Dashboard';
+import Login from './Login';
 
 class App extends React.Component {
   state = { sideDrawerOpen: false };
@@ -38,6 +39,7 @@ class App extends React.Component {
           {backdrop}
           <div className="container">
             <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/login" component={Login} />
           </div>
         </BrowserRouter>
       </div>

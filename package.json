@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/ParisBueller/WarRoom#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "concurrently": "^5.1.0",
     "cookie-session": "^1.4.0",
@@ -34,6 +35,7 @@
     "nodemon": "^2.0.2",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0",
     "path-parser": "^6.1.0"
   }
 }

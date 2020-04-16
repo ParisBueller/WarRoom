@@ -1,6 +1,8 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 const keys = require('../config/keys');
 
 const User = mongoose.model('users');
@@ -40,3 +42,29 @@ passport.use(
     }
     )
 );
+
+passport.use(
+    new LocalStrategy({
+        usernameField: 'email'
+    },
+    async (email, password, done) => {
+        let errors = [];
+        const existingUser = await User.findOne({ email: email });
+        if(!existingUser) {
+            errors.push({msg: 'User does not exist'});
+            return done(null, false)
+        }
+
+        bcrypt.compare(password, existingUser.password, (err, isMatch) => {
+            if(err) throw err;
+            console.log(err);
+            if(isMatch) {
+                return done(null, existingUser);
+            } else {
+                errors.push({msg: 'Password is incorrect'});
+                return done(null, false);                
+                }
+            })
+        }
+    )
+)

@@ -11,7 +11,9 @@ class Dashboard extends React.Component {
     renderDashboard() {
         if (this.props.auth === null || false) {
             return (
-                <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                <div className="lds-roller-container">
+                    <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                </div>
             );
         }
         return (
